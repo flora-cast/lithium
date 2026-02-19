@@ -16,7 +16,7 @@ echo 4 > /proc/sys/kernel/printk
 setconsole /dev/tty0 2>/dev/null || true
 
 echo "Waiting usb detection..."
-sleep 4
+sleep 5
 
 for dev in /dev/sr0 /dev/sd*; do
   echo "\$dev: checking..."
@@ -43,7 +43,7 @@ for dev in /dev/sr0 /dev/sd*; do
 
     dmesg -n 1
     echo "Switching root..."
-    exec switch_root /merged /sbin/init
+    exec switch_root /merged /sbin/finit
   fi
   umount /mnt
 done
